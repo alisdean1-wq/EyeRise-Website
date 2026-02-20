@@ -184,7 +184,10 @@ export default function ScreenAttackingSection() {
       <div className="grid md:grid-cols-3 gap-4">
         {cards.map((card, i) => {
           const Icon = card.icon;
-          const accentStyles = {
+          const accentStyles: Record<
+  string,
+  { border: string; borderHover: string; iconBg: string; badge: string }
+> = {
             red: {
               border: "border-red-300/70 dark:border-red-500/50",
               borderHover: "hover:border-red-400/60 dark:hover:border-red-400/50",
