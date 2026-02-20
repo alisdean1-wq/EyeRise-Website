@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 250 249;
+    --foreground: 15 23 42;
+    --border: 226 232 240;
+  }
+  * { @apply border-border; }
+  body { @apply bg-stone-50 text-slate-700 antialiased; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}

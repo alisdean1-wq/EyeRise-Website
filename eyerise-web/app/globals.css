@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 249 247;
+    --foreground: 26 26 26;
+    --border: 226 232 240;
+    --card: 255 255 255;
+
+    --amber: 217 119 6;
+    --amber-light: 251 191 36;
+
+    --slate: 51 65 85;
+    --slate-light: 148 163 184;
+    
+    --navy: 30 41 59;
+    --purple-accent: 167 139 250;
+    --orange-accent: 251 146 60;
+
+    /* EyeRise theme (HSL space-separated for hsl(var(--name))) */
+    --eyerise-crimson: 348 83% 47%;
+    --eyerise-amber: 32 95% 55%;
+    --eyerise-blue-danger: 210 100% 60%;
+    --eyerise-wave-blue: 210 85% 55%;
+
+    /* Aurora background colors */
+    --white: rgba(255, 255, 255, 1);
+    --black: rgba(0, 0, 0, 1);
+    --transparent: rgba(255, 255, 255, 0);
+    --blue-300: rgb(147, 197, 253);
+    --blue-400: rgb(96, 165, 250);
+    --blue-500: rgb(59, 130, 246);
+    --indigo-300: rgb(165, 180, 252);
+    --violet-200: rgb(221, 214, 254);
+  }
+
+  .dark {
+    --background: 0 0 0;
+    --foreground: 229 229 229;
+    --border: 63 63 70;
+    --card: 23 23 23;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply antialiased;
+    background-color: #FAF9F7;
+    color: #1e293b;
+  }
+
+  .dark body {
+    background-color: #000000;
+    color: #f5f5f5;
+  }
+
+  .dark .text-navy,
+  .dark .text-slate-800,
+  .dark .text-slate-900 {
+    color: #f5f5f5;
+  }
+
+  .dark .text-navy-light,
+  .dark .text-slate-600 {
+    color: #d4d4d4;
+  }
+
+  .dark .text-slate-500 {
+    color: #a3a3a3;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-slate-200/60 dark:border-zinc-700/60;
+  }
+  .text-muted-foreground {
+    @apply text-slate-500 dark:text-gray-400;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent;
+  }
+  .glow-blue-harsh {
+    box-shadow: 0 0 12px hsl(var(--eyerise-blue-danger) / 0.4);
+  }
+  .glow-amber {
+    box-shadow: 0 0 12px hsl(var(--eyerise-amber) / 0.4);
+  }
+  .bg-mustafar-card {
+    @apply bg-zinc-900/90 border border-white/10;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .grain-texture {
+    position: relative;
+  }
+  
+  .grain-texture::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
